@@ -1,0 +1,19 @@
+module 4_alu( input [3:0]a, [3:0]b, op[2:0], output reg zero, [3:0]result );
+always @(*) begin
+  case ( op )
+  3'b000: result = a + b;
+  3'b001: result = a - b;
+  3'b010: result = a & b;
+  3'b011: result = a | b;
+  3'b100: result = a ^ b;
+  3'b101: result = ~ a;
+  3'b110: result = a << 1;
+  3'b111: result = a >> 1;
+
+  default: begin 
+    zero = 1'b1;
+    result = 1'b0;
+    end
+    endcase
+    end
+    endmodule
